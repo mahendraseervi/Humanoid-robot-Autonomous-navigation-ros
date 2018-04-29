@@ -7,7 +7,7 @@ Intel R200 realsense camera - To collect the depth information of the image.
 
 Intel UP board - For processing the slam package.
 
-Arduino mega - used to publish odomerty information to board and to provide commands to move chassis.
+Arduino mega - used to publish odomerty information to UP board and to provide commands to move chassis.
 
 Dc motor with encoder - Used to collect odometry infomation and to move chassis. 
 
