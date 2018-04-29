@@ -1,0 +1,25 @@
+#footprint: [[-0.45, 0], [0, -0.45], [0.45, 0], [0, 0.45]]
+footprint: [ [0.2, 0.2], [-0.2, 0.2], [-0.2, -0.2], [0.2, -0.2]]
+footprint_padding: 0.01
+
+robot_base_frame: base_link
+update_frequency: 4.0
+publish_frequency: 4.0
+transform_tolerance: 0.5
+
+resolution: 0.05
+
+obstacle_range: 5.5
+raytrace_range: 6.0
+
+#layer definitions
+static:
+    map_topic: /map
+    subscribe_to_updates: true
+
+obstacles_kinect:
+    observation_sources: point_cloud_sensor
+    point_cloud_sensor: {sensor_frame: camera_link, data_type: PointCloud2, topic: /camera/depth/points, marking: true, clearing: true}
+
+inflation:
+    inflation_radius: 0.45

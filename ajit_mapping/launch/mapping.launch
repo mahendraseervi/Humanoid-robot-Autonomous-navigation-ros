@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+    <param name="frame_id" type="string" value="map" />
+    <param name="sensor_model/max_range" value="3.0" />
+
+    <param name="resolution" value="0.01" />
+    <param name="base_frame_id" value="base_footprint" />
+
+    <remap from="cloud_in" to="/camera/depth/points" />
+    <remap from="/projected_map" to="/map" />
+  </node>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_cameralink_tf" args="0 0 0 0 0 0 /map /camera_link 10"/> -->
+</launch>

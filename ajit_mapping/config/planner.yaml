@@ -1,0 +1,58 @@
+controller_frequency: 5.0
+recovery_behaviour_enabled: true
+differential_drive : true
+NavfnROS:
+  allow_unknown: true # Specifies whether or not to allow navfn to create plans that traverse unknown space.
+  default_tolerance: 0.1 # A tolerance on the goal point for the planner.
+  visualize_potential: true
+
+DWAPlannerROS:
+  # Robot configuration parameters
+
+  acc_lim_x: 2.5
+  acc_lim_y: 0
+  acc_lim_th: 3.2
+
+  max_vel_x: 0.37
+  min_vel_x: 0.23
+  max_vel_y: 0.0
+  min_vel_y: -0.0
+
+  max_trans_vel: 0.4
+  min_trans_vel: 0.23
+  max_rot_vel: 1.1
+  min_rot_vel: 0.85
+
+  # Goal Tolerance Parameters
+  yaw_goal_tolerance: 0.5
+  xy_goal_tolerance: 0.3
+  latch_xy_goal_tolerance: true
+
+  max_vel_theta: 1.1  # choose slightly less than the base's capability
+  min_vel_theta: 0.85  # this is the min angular velocity when there is negligible translational velocity
+  min_in_place_vel_theta: 0.05
+
+
+
+  # Trajectory Scoring Parameters
+  pdist_scale: 0.7
+  gdist_scale: 0.4
+  occdist_scale: 0.3
+  heading_lookahead: 0.325
+  heading_scoring: false
+  heading_scoring_timestep: 0.8
+#  dwa: false
+  dwa: true
+
+# Oscillation Prevention Parameters
+  oscillation_timeout: 0.0  # wait forever
+  oscillation_reset_dist: 0.05  # 0.05   - how far to travel before resetting oscillation flags
+  prune_plan: true
+
+# Debugging
+  publish_traj_pc : true
+  publish_cost_grid_pc: true
+
+# 3WD omniwheel robot
+#  holonomic_robot: true
+holonomic_robot: false

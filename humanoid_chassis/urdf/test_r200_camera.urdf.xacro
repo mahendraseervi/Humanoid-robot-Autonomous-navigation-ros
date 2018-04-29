@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<robot name="ajit_mapping" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+
+  <xacro:property name="r200_cam_rgb_px" value="0.005"/>
+  <xacro:property name="r200_cam_rgb_py" value="0.018"/>
+  <xacro:property name="r200_cam_rgb_pz" value="0.013"/>
+  <xacro:property name="r200_cam_depth_offset" value="0.01"/>
+
+
+  <xacro:macro name="sensor_r200" params="parent *origin">
+    <!-- camera body, with origin at bottom -->
+    <joint name="camera_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="camera_link" />
+    </joint>
+
+    <link name="camera_link">
+      <visual>
+      <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
+      <geometry>
+        <mesh filename="package://humanoid_chassis/meshes/r200/r200.dae" />
+      </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.130 0.567 0.118"/>
+        </geometry>
+      </collision>
+      <!-- The following are not reliable values, and should not be used for modeling -->
+      <inertial>
+        <mass value="0.564" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                 iyy="0.000498940" iyz="0.0" izz="0.003879257" />
+      </inertial>
+    </link>
+
+    <!-- camera rgb joints and links -->
+    <joint name="camera_rgb_joint" type="fixed">
+      <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py} ${r200_cam_rgb_pz}"
+              rpy="0 0 0"/>
+      <parent link="camera_link"/>
+      <child link="camera_rgb_frame" />
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <joint name="camera_rgb_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_rgb_frame" />
+      <child link="camera_rgb_optical_frame" />
+    </joint>
+    <link name="camera_rgb_optical_frame"/>
+
+    <!-- camera depth joints and links -->
+    <joint name="camera_depth_joint" type="fixed">
+      <origin xyz="0 ${r200_cam_depth_offset} 0" rpy="0 0 0" />
+      <parent link="camera_rgb_frame" />
+      <child link="camera_depth_frame" />
+    </joint>
+    <link name="camera_depth_frame"/>
+
+    <joint name="camera_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_depth_optical_frame" />
+    </joint>
+    <link name="camera_depth_optical_frame"/>
+  </xacro:macro>
+
+
+  <link name="base_link">
+  <inertial>
+    <origin xyz="-0.0078072 0.30695 -0.069033"
+            rpy="0 0 -1.57" />
+    <mass value="12.463" />
+    <inertia ixx="1.5117" ixy="0.03299" ixz="-0.039036"
+             iyy="0.15112" iyz="0.060949" izz="1.5638" />
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 -1.57" />
+    <geometry>
+      <mesh filename="package://humanoid_chassis/meshes/r200/base_link.STL" />
+    </geometry>
+    <material name="">
+      <color rgba="0.75294 0.75294 0.75294 1" />
+    </material>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 -1.57" />
+    <geometry>
+      <mesh filename="package://humanoid_chassis/meshes/r200/base_link.STL" />
+    </geometry>
+  </collision>
+</link>
+  <!-- <link name="base_link" >
+  <inertial>
+    <origin xyz="-0.0012506 0.00030631 0.068062" rpy="0 0 1.57" />
+    <mass value="5.294" />
+    <inertia ixx="0.10119" ixy="5.3793E-06" ixz="-1.8662E-06"
+             iyy="0.075705" iyz="-3.4421E-05" izz="0.10699" />
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 1.57" />
+    <geometry>
+      <mesh filename="package://humanoid_chassis/meshes/r200/base_link.STL" />
+    </geometry>
+    <material name="">
+      <color rgba="0.77647 0.75686 0.73725 1" />
+    </material>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 1.57" />
+    <geometry>
+      <mesh filename="package://humanoid_chassis/meshes/r200/base_link.STL" />
+    </geometry>
+  </collision>
+  </link> -->
+
+  <sensor_r200 parent="base_link">
+    <origin xyz="0.11 -0.06 1.0" rpy="0 -0.00031136 1.9065E-20" />
+  </sensor_r200>
+
+</robot>

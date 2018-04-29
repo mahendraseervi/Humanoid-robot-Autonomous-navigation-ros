@@ -1,0 +1,7 @@
+image: /home/mahendra/catkin_ws/src/humanoid_chassis/maps/test_map.pgm
+resolution: 0.010000
+origin: [-0.000000, -1.390000, -nan]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

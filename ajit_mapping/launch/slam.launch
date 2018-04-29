@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find base_controller)/launch/base.launch"/>
+  <include file="$(find ajit_mapping)/launch/camera.launch"/>
+
+  <include file="$(find ajit_mapping)/launch/localization.launch"/>
+  <include file="$(find ajit_mapping)/launch/mapping.launch"/>
+  <include file="$(find ajit_mapping)/launch/move_base.launch"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom_tf" args="0 0 0 0 0 0 /map /odom 10"/>
+
+</launch>
