@@ -11,7 +11,7 @@ Arduino mega - used to publish odomerty information to board and to provide comm
 
 Dc motor with encoder - Used to collect odometry infomation and to move chassis. 
 
-### Installing
+## Installing
 Few ros packages and dependiencies must be installed before running the above packages.
 
 ros navigation package(for kinetic)
@@ -31,7 +31,7 @@ sudo apt-get install ros-kinetic-octomap ros-kinetic-octomap-mapping
 ```
 
 
-## Running the tests
+## Running the package
 
 first launch 
 ```
