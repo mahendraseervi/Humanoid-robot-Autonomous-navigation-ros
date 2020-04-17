@@ -46,7 +46,7 @@ At this point, Rviz would be launched on your display with robot model loaded. U
 where the robot has to navigate should be given. Within few seconds the local and global path will be produce which robot 
 would follow and the reach the goal point.
 
-## Images 
+## Images: 
 ![screenshot from 2018-04-24 09-21-06](https://user-images.githubusercontent.com/21152256/39403443-033d025c-4b9a-11e8-8583-0e2be3dfcd1f.png)
 
 ![screenshot from 2018-04-24 09-20-49](https://user-images.githubusercontent.com/21152256/39403444-0bae8ab4-4b9a-11e8-8c42-588eec430b3f.png)
@@ -55,5 +55,6 @@ would follow and the reach the goal point.
 
 ![img_20180427_210758_475](https://user-images.githubusercontent.com/21152256/39403447-15b2f93c-4b9a-11e8-9550-34e56bdd853a.jpg)
 
-
+## Video:
+https://www.youtube.com/embed/kuIxMKZp3ro
 
