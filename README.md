@@ -46,9 +46,11 @@ At this point, Rviz would be launched on your display with robot model loaded. U
 where the robot has to navigate should be given. Within few seconds the local and global path will be produce which robot 
 would follow and the reach the goal point.
 
-## Video:
+## Working youtube Video Link:
 https://www.youtube.com/embed/kuIxMKZp3ro
 
+## for more information:
+https://mahendraseervi.github.io/project%20humanoid.html
 
 ## Images: 
 ![screenshot from 2018-04-24 09-21-06](https://user-images.githubusercontent.com/21152256/39403443-033d025c-4b9a-11e8-8583-0e2be3dfcd1f.png)
