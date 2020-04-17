@@ -3,7 +3,7 @@
 Given a point in the map, the robot can autonomously navigate to the goal point avoiding the static and dynamic obstracles in between.
 
 ## Hardware used
-Intel R200 realsense camera - To collect the depth information of the image
+Intel R200 realsense camera - To collect the depth information of the image.
 
 Intel UP board - For processing the slam package.
 
