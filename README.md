@@ -49,7 +49,7 @@ would follow and the reach the goal point.
 ## Working youtube Video Link:
 https://www.youtube.com/embed/kuIxMKZp3ro
 
-## for more information:
+## For more information:
 https://mahendraseervi.github.io/project%20humanoid.html
 
 ## Images: 
